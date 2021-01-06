@@ -63,5 +63,13 @@ var controller = {
         }); //End findAndUpdate
 
     }, //Close update
+
+
+    test: (req, res) => {
+        res.json({
+            ok: true,
+            message: 'Este es un test para produccion'
+        });
+    }
 };
 module.exports = controller;
