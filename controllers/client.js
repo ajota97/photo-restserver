@@ -65,11 +65,5 @@ var controller = {
     }, //Close update
 
 
-    test: (req, res) => {
-        res.json({
-            ok: true,
-            message: 'Este es un test para produccion'
-        });
-    }
 };
 module.exports = controller;

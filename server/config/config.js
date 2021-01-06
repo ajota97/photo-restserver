@@ -10,7 +10,7 @@ let urlDB;
 if (process.env.NODE_ENV == 'dev') {
     urlDB = 'mongodb://localhost:27017/photoStudio';
 } else {
-    urlDB = 'mongodb+srv://ajota:jose8188258@cluster0.dhih4.mongodb.net/PhotoStudio';
+    urlDB = process.env.MONGO_URI;
 }
 
 process.env.URLDB = urlDB;
