@@ -14,3 +14,9 @@ if (process.env.NODE_ENV == 'dev') {
 }
 
 process.env.URLDB = urlDB;
+
+//Token expiration
+process.env.CADUCIDAD_TOKEN = '48h';
+
+//SEED
+process.env.SEED = process.env.SEED || 'este-es-el-seed-desarrollo';

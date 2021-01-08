@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 const Schema = mongoose.Schema;
 
-let clientSchema = new Schema({
+let photoSchema = new Schema({
     name: {
         type: String,
         unique: false,
@@ -28,20 +28,25 @@ let clientSchema = new Schema({
         type: String,
         required: false
     },
+    description: {
+        type: String,
+        required: false,
+    },
+    address: {
+        type: String,
+        required: false
+    }
 
 });
 
-
 //Delete password form the json response
-clientSchema.methods.toJSON = function() {
-    let client = this;
-    let clientObject = client.toObject();
-    delete clientObject.password;
-    return clientObject;
+photoSchema.methods.toJSON = function() {
+    let photo = this;
+    let photoObject = photo.toObject();
+    delete photoObject.password;
+    return photoObject;
 }
 
 
-
-clientSchema.plugin(uniqueValidator, { message: '{PATH} have to be unique' });
-
-module.exports = mongoose.model('Client', clientSchema);
+photoSchema.plugin(uniqueValidator, { message: '{PATH} have to be unique' });
+module.exports = mongoose.model('PhotoStudio', photoSchema);
