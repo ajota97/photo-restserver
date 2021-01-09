@@ -4,6 +4,10 @@ const mongoose = require('mongoose');
 const app = express();
 const bodyParser = require('body-parser');
 
+//Configurando el cors
+const cors = require('cors');
+app.use(cors());
+
 //Middlewares
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
