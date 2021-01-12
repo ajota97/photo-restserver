@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 const { uploadS3 } = require('../server/config/multer/config');
-var { upload } = require('../controllers/upload_images');
-const cloudinary = require('cloudinary').v2;
-const fs = require('fs');
+//var { upload } = require('../controllers/upload_images');
+//const cloudinary = require('cloudinary').v2;
+//const fs = require('fs');
 let Service = require('../models/service');
 
 
@@ -19,7 +19,7 @@ let Service = require('../models/service');
 var data = {};
 var img;
 
-app.post('/upload/image/:id', uploadS3.array('image', 20), function(req, res, next) {
+app.post('/upload/image/:id', uploadS3.array('image', 12), function(req, res, next) {
 
     data.data = req.files;
     for (let i = 0; req.files.length > i; i++) {
@@ -40,12 +40,6 @@ app.post('/upload/image/:id', uploadS3.array('image', 20), function(req, res, ne
 
     } //End ciclo FOR
 
-
-    /*res.json({
-        Count: req.files.length + ' files!',
-        data: data,
-
-    });*/
     res.status(200).json({
         ok: true,
         message: 'Imagenes subidas correctamente'
@@ -123,9 +117,6 @@ app.post('/upload/image', (req, res) => {
 
 
 });*/
-
-
-
 
 
 

@@ -1,4 +1,4 @@
-const multer = require('multer');
+/*const multer = require('multer');
 const path = require('path');
 
 
@@ -33,4 +33,4 @@ exports.upload = multer({
 }).array('image', 12)
 
 
-//module.exports = { upload };
+//module.exports = { upload };*/
