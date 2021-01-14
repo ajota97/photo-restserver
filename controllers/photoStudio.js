@@ -68,36 +68,6 @@ var controller = {
 
     }, //Close update
 
-    /***************
-    GetAllServices
-    ***************/
-
-    getService: (req, res) => {
-
-
-        let from = Number(req.query.from) || 0;
-        let id = req.params.id;
-
-        Service.find({ photoStudio: id })
-            .skip(from)
-            .limit(5)
-            .populate('client', 'name')
-            .populate('photoStudio', 'name')
-            .exec((err, services) => {
-                if (err) {
-                    return res.status(500).json({
-                        ok: false,
-                        err
-                    });
-                }
-
-                res.json({
-                    ok: true,
-                    services
-                });
-            });
-
-    }, //End get all the services
 
 
 
