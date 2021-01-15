@@ -19,7 +19,7 @@ let Service = require('../models/service');
 var data = {};
 var img;
 
-app.post('/upload/image/:id', uploadS3.array('image', 12), function(req, res, next) {
+app.post('/upload/image/:id', uploadS3.array('file0', 12), function(req, res, next) {
 
     data.data = req.files;
     for (let i = 0; req.files.length > i; i++) {
