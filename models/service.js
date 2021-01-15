@@ -15,9 +15,7 @@ var imageSchema = Schema({
         required: false
     },
     price: {
-        type: Number,
-        get: getPrice,
-        set: setPrice
+        type: Number
     }
 
 });

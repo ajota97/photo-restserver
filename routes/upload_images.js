@@ -19,19 +19,22 @@ let Service = require('../models/service');
 var data = {};
 var img;
 
-app.post('/upload/image/:id', uploadS3.array('file0', 12), function(req, res, next) {
+app.post('/upload/image/:id/:price', uploadS3.array('file0', 12), function(req, res, next) {
 
     data.data = req.files;
     for (let i = 0; req.files.length > i; i++) {
         //Guardar todos los link del array en el atributo img del servicio
         img = data.data[i].location
         let id = req.params.id;
+        let price = req.params.price;
+
         Service.findById(id, (err, serviceDB) => {
             if (err) { return res.status(404).json({ ok: false, err: { message: 'Servicio no encontrado!' } }); }
-            let image = {
-                url: img
-            }
-            serviceDB.img.push({ url: data.data[i].location });
+
+            serviceDB.img.push({
+                url: data.data[i].location,
+                price: price
+            });
 
             serviceDB.save((err, service) => {
                 if (err) { return res.status(500).json({ ok: false, err }); }
@@ -42,7 +45,7 @@ app.post('/upload/image/:id', uploadS3.array('file0', 12), function(req, res, ne
 
     res.status(200).json({
         ok: true,
-        message: 'Imagenes subidas correctamente'
+        message: 'Imagenes subidas correctamente',
     });
 
 }); //End postImage
