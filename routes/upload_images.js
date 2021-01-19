@@ -1,10 +1,13 @@
 const express = require('express');
 const app = express();
 const { uploadS3 } = require('../server/config/multer/config');
+
+
 //var { upload } = require('../controllers/upload_images');
 //const cloudinary = require('cloudinary').v2;
 //const fs = require('fs');
 let Service = require('../models/service');
+const controllerFace = require('../server/config/face_comparision/config');
 
 
 //Configure cloudinary
@@ -18,6 +21,8 @@ let Service = require('../models/service');
 //app.post('/upload/image', imageController.upload);
 var data = {};
 var img;
+
+app.get('/face', controllerFace.face);
 
 app.post('/upload/image/:id/:price', uploadS3.array('file0', 12), function(req, res, next) {
 
