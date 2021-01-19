@@ -70,11 +70,9 @@ var controller = {
 
     getAll: (req, res) => {
 
-        let from = Number(req.query.from) || 0;
+
 
         PhotoStudio.find({})
-            .skip(from)
-            .limit(5)
             .exec((err, photoStudios) => {
                 if (err) {
                     return res.status(500).json({
