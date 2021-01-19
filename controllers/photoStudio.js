@@ -68,6 +68,30 @@ var controller = {
 
     }, //Close update
 
+    getAll: (req, res) => {
+
+        let from = Number(req.query.from) || 0;
+
+        PhotoStudio.find({})
+            .skip(from)
+            .limit(5)
+            .exec((err, photoStudios) => {
+                if (err) {
+                    return res.status(500).json({
+                        ok: false,
+                        err
+                    });
+                }
+
+                res.json({
+                    ok: true,
+                    photoStudios
+                });
+            });
+
+
+    }, //End get all the photoStudio
+
 
 
 
