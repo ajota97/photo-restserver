@@ -177,6 +177,29 @@ var controller = {
 
     }, //End GetUrlImageById
 
+    getServiceByClient: (req, res) => {
+
+
+
+        let id = req.params.id;
+
+        Service.find({ client: id })
+            .exec((err, services) => {
+                if (err) {
+                    return res.status(500).json({
+                        ok: false,
+                        err
+                    });
+                }
+
+                res.json({
+                    ok: true,
+                    services
+                });
+            });
+
+    },
+
 
 
 
