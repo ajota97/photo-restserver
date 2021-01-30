@@ -5,8 +5,8 @@ const photo_target = '1610776279014.jpg'
 
 
 var config = new AWS.Config({
-    accessKeyId: proccess.env.ACCESS_KEY_ID,
-    secretAccessKey: proccess.env.SECRET_ACCESS_KEY,
+    accessKeyId: process.env.ACCESS_KEY_ID,
+    secretAccessKey: process.env.SECRET_ACCESS_KEY,
     region: 'us-east-1'
 })
 
