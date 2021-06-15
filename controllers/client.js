@@ -64,6 +64,28 @@ var controller = {
 
     }, //Close update
 
+    getAll: (req, res) => {
+
+
+
+        Client.find({})
+            .exec((err, clientDB) => {
+                if (err) {
+                    return res.status(500).json({
+                        ok: false,
+                        err
+                    });
+                }
+
+                res.json({
+                    ok: true,
+                    clientDB
+                });
+            });
+
+
+    }, //End get all the photoStudio
+
 
 };
 module.exports = controller;

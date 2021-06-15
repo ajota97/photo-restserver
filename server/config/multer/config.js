@@ -4,10 +4,11 @@ const aws = require('aws-sdk');
 
 
 const s3 = new aws.S3({
-    accessKeyId: process.env.ACCESS_KEY_ID,
-    secretAccessKey: process.env.SECRET_ACCESS_KEY,
-    region: ''
+    accessKeyId: 'AKIAWS2E7YQUQFKGFA5R',
+    secretAccessKey: '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',
+    region: 'us-east-1'
 });
+
 
 
 exports.uploadS3 = multer({

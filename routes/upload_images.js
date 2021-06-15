@@ -27,9 +27,10 @@ app.get('/face', controllerFace.face);
 app.post('/upload/image/:id/:price', uploadS3.array('file0', 12), function(req, res, next) {
 
     data.data = req.files;
+
     for (let i = 0; req.files.length > i; i++) {
         //Guardar todos los link del array en el atributo img del servicio
-        img = data.data[i].location
+        img = data.data[i].location;
         let id = req.params.id;
         let price = req.params.price;
 
@@ -43,6 +44,7 @@ app.post('/upload/image/:id/:price', uploadS3.array('file0', 12), function(req, 
 
             serviceDB.save((err, service) => {
                 if (err) { return res.status(500).json({ ok: false, err }); }
+
             });
         });
 
